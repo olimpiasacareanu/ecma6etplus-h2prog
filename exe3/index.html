@@ -1,0 +1,32 @@
+<label for="">Saisir le rayon</label>
+<input type="number" id="rayon" onchange="calcul()">
+<br>
+<label for="">Perimètre : </label>
+<input type="checkbox" id="perimetre" checked onchange="calcul()">
+<div class="resultat"></div>
+
+<script>
+    const num = document.querySelector("#rayon")
+    console.log(num)
+    const checkP = document.querySelector("#perimetre")
+    const divResultat = document.querySelector(".resultat")
+
+    function calcul(){
+        let resultat = 0
+        if(checkP.checked){
+            resultat = perimetre(num.value)
+        }else{
+            resultat = aria(num.value)
+        }
+        divResultat.innerHTML = resultat
+
+    }
+
+    function perimetre(x){
+        return "Perimètre : " + (Math.PI*x*2)
+    }
+    function aria(x){
+        return "Aire : " + (Math.PI*Math.pow(x,2))
+    }
+
+</script>
